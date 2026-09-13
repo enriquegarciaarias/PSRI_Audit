@@ -160,7 +160,7 @@ La cuestión empírica (¿existe un desfase sistemático sin corregir?) se valid
 - **El efecto confirmatorio de S_coher es robusto a la latencia plausible.** El pico de la asociación within-de-sujeto S_coher↔desacuerdo está en el lag 0 y sobrevive desplazamientos de ±1 ventana (±5 s), decayendo solo a ±2-3.
 - **El riesgo real es cross-device.** Las señales NeuroSky/Polar empiezan 0-396 s después del E4 (mediana ~112 s): cualquier par S_coher *entre dispositivos* exige verificar la alineación (cross-correlación o grid-check) antes de interpretar la coherencia. Es el caso de EXIST (HR Garmin × pupilómetro), donde esta verificación es parte del protocolo de integración.
 
-Lectura conceptual: **modelar la latencia no es un requisito universal del índice, sino una verificación obligatoria por pares de sensores** — automática cuando el par comparte reloj (K-EmoCon HR-EDA), y explícita cuando los sistemas provienen de dispositivos independientes. El diagnóstico queda como herramienta reutilizable para auditar cualquier nueva instanciación de S_coher, no como una corrección aplicada a los resultados actuales.
+Lectura conceptual: **modelar la latencia no es un requisito universal del índice, sino una verificación obligatoria por pares de sensores** — automática cuando el par comparte reloj (K-EmoCon HR-EDA), y explícita cuando los sistemas provienen de dispositivos independientes. El diagnóstico queda como la comprobación de latencia de la **auditoría PSRI**, reutilizable en cualquier nueva instanciación de S_coher, no como una corrección aplicada a los resultados actuales.
 
 ## 1.3. Consistencia Conductual (S_cond)
 
@@ -247,9 +247,9 @@ Resumen de los campos utilizados:
 | **S_coher** | `garmin_hr_mean_baseline_prev` × `pupil_mean_baseline_prev` | (no aplica — validación de un solo componente) | HR (E4) × EDA |
 | **S_cond** | `reaction_time`, `blinks_count` | (no aplica) | – |
 
-## 1.5. El método como auditoría: fiabilidad de la unidad de análisis (el caso EXIST)
+## 1.5. La auditoría PSRI: fiabilidad de la unidad de análisis (el caso EXIST)
 
-El PSRI es un **método, no un índice suelto**: cada vez que se instancia exige auditar los pre-requisitos de su claim. Cuando la unidad de análisis (el trial, la ventana, el meme) es un **agregado sobre pocos sujetos**, el pre-requisito crítico es que ese agregado tenga **señal reproducible propia**. Si el agregado es solo ruido promediado sobre una muestra mínima, cualquier correlación con una variable de esa unidad es imposible por diseño — exista o no la relación real entre fiabilidad fisiológica y el constructo de interés. Esta es la segunda auditoría del método, junto a la ya documentada **latencia de sensores** en S_coher (§1.2.1, cuándo dos señales comparten inicio temporal). La nueva es la de **agregación**: ¿el agregado por unidad de análisis transporta señal, o solo identidad de sujeto y ruido?
+El PSRI es un **método, no un índice suelto**: cada vez que se instancia activa la **auditoría PSRI**, que exige comprobar los pre-requisitos de su claim. Cuando la unidad de análisis (el trial, la ventana, el meme) es un **agregado sobre pocos sujetos**, el pre-requisito crítico es que ese agregado tenga **señal reproducible propia**. Si el agregado es solo ruido promediado sobre una muestra mínima, cualquier correlación con una variable de esa unidad es imposible por diseño — exista o no la relación real entre fiabilidad fisiológica y el constructo de interés. Esta es la segunda comprobación de la auditoría PSRI, junto a la ya documentada **latencia de sensores** en S_coher (§1.2.1, cuándo dos señales comparten inicio temporal). La nueva es la de **agregación**: ¿el agregado por unidad de análisis transporta señal, o solo identidad de sujeto y ruido?
 
 En EXIST la auditoría de agregación es la que convierte la *desalineación poblacional* (un argumento conceptual: generadores de señal y jueces son disjuntos) en un hecho **medido con los propios datos del PSRI, sin etiquetas** (`sources/exist/meme_reliability.py`, resumen en EstudioEXIST.md §3.8). Resultados:
 
