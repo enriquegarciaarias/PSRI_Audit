@@ -214,6 +214,24 @@ Los **niveles fisiológicos crudos son ~65–80% rasgo de sujeto y 0% señal de 
 
 **Lectura.** La desalineación deja de ser solo un argumento conceptual: queda **medida**. Los canales fisiológicos no tienen señal reproducible a nivel de meme (ICC_meme_adj≈0, fiabilidad entre viewers≈0), el agregado es ruido promediado sobre 1–2 sujetos, y por eso ninguna correlación con el desacuerdo es posible — exactamente el fallo de arquitectura que motiva K-EmoCon. El contraste interno demuestra que el diagnóstico discrimina: el único canal con señal de meme reproducible es el **conductual** (RT), y es precisamente el único que en el pool corregido de §3.7 produce hallazgo (`S_cond_mono`). El PSRI es un método, no un índice suelto: aplicar el método obliga a auditar los pre-requisitos de su claim (que la señal fisiológica a nivel de unidad de análisis sea reproducible); del mismo modo, la verificación de latencia de sensores que exige S_coher en K-EmoCon es otro pre-requisito del método.
 
+**Frontera de la afirmación.** Este diagnóstico es sobre el **canal fisiológico agregado** y el diseño, no sobre la conducta de anotación ni sobre el compromiso del sujeto. No dice que el sujeto no vea el meme ni que no reaccione —puede hacerlo—, ni que no anote (los anotadores son un grupo independiente, §2.1). Dice que no existe una **firma fisiológica reproducible a nivel de meme** que un agregado de 1–2 viewers pueda recuperar, de modo que el regresor fisiológico no es utilizable para la inferencia a nivel de meme.
+
+### 3.9. Transferencia de utilidad downstream (diagnóstico exploratorio)
+
+La auditoría de agregación (§3.8) predice que el canal fisiológico, sin señal reproducible a nivel de meme, no debe aportar utilidad predictiva, mientras que el canal conductual (RT, parpadeos), que sí la tiene, debería aportarla. Módulo: `sources/exist/downstream_transfer.py` (salidas en `results/output/EXIST/downstream_transfer/`). Unidad = meme; features de **contenido** provistas por el corpus (texto OCR con TF-IDF + 64 dims de imagen), conductuales y fisiológicas; Ridge/logística con CV de 5 particiones (aleatoria y agrupada por viewers) y métrica out-of-fold; control con target permutado.
+
+| Bloque | entropy_22 (ρ) | entropy_23 (ρ) | soft_21_yes (ρ) | hard_21 (AUC) |
+|---|---|---|---|---|
+| content | 0.210 | 0.287 | 0.453 | 0.736 |
+| content + conductual | **0.222** | **0.300** | **0.458** | **0.742** |
+| content + fisiológico | 0.211 | 0.286 | 0.452 | 0.736 |
+| content + ambos | 0.223 | 0.298 | 0.456 | 0.740 |
+| control permutado | ≈0 | ≈0 | ≈0 | ≈0.5 |
+
+(valores pooled OOF, CV aleatoria; la agrupada por viewers coincide.)
+
+**Lectura.** El contenido es un baseline fuerte (ρ≈0.45 en la proporción de YES; AUC≈0.74). Añadir el canal conductual mejora de forma pequeña pero **consistente** en los cuatro objetivos; añadir el fisiológico **no cambia nada**, y el combinado iguala al conductual. La auditoría de agregación **anticipa** qué canal aporta utilidad downstream: solo el que tiene fiabilidad de meme reproducible. Esto convierte el diagnóstico de descriptivo en predictivo y responde directamente a la crítica de "downstream gains not demonstrated". **Frontera:** la ganancia conductual es modesta y los modelos son lineales; no se usan `img_score`/`img_cluster` del corpus para evitar cualquier duda de fuga.
+
 ## 4. Limitaciones
 
 - **Datos agregados (sin series temporales).** Solo se dispone de estadísticos resumen (media, std, min, max) por trial, no de la serie completa. Esto impide analizar la dinámica temporal de la respuesta y calcular correlaciones temporales reales entre HR y pupila — y, en particular, impide verificar la **latencia cross-device** del par HR (Garmin) × pupila (Tobii), el caso donde el framework exige comprobarla.

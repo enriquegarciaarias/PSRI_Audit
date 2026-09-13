@@ -260,6 +260,8 @@ En EXIST la auditoría de agregación es la que convierte la *desalineación pob
 
 La lección conceptual es la misma que en la otra auditoría: **los controles emergen de la lógica del método, no de haber sospechado el fallo concreto**. La auditoría de agregación no se construyó para "probar la desalineación", sino porque aplicar el PSRI a una unidad de análisis agregada exige comprobarlo; el resultado (fiabilidad ≈0) transforma el nulo de EXIST en una propiedad de diseño medida, y refuerza la decisión de diseñar K-EmoCon con la población alineada.
 
+**Frontera:** esto es una propiedad del **canal fisiológico agregado**, no de la conducta de anotación (grupo independiente) ni del compromiso del sujeto; no afirma que el sujeto no vea o no reaccione al meme, sino que su reacción no es reproducible entre viewers.
+
 ## 2. Evolución del Modelo
 
 La formulación aquí presentada es el resultado de un proceso iterativo de corrección, no la primera implementación ensayada. En particular: (i) una primera versión de S_estab basada en coeficiente de variación entre sujetos —en lugar de estabilidad intra-sujeto— medía consenso poblacional, no fiabilidad de señal, y fue descartada; (ii) la transformación monótona asignaba fiabilidad máxima a señales planas, y fue sustituida por la función en U; (iii) la primera formulación de S_coher, calculada entre trials de un mismo sujeto, carecía de varianza real entre memes y fue sustituida por la versión a nivel de trial. Estas correcciones, varias de ellas motivadas por la validación externa descrita en la Validación PhysioNet, se documentan con mayor detalle en el material suplementario de este trabajo.

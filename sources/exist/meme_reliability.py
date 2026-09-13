@@ -12,6 +12,11 @@ ruido promediado sobre los pocos sujetos que vieron cada meme, la correlación
 con el desacuerdo anotador es imposible, exista o no la cadena. Medir esa
 fiabilidad del agregado es medir la desconexión de diseño con datos.
 
+Frontera: el diagnóstico es sobre el canal fisiológico agregado y el diseño, no
+sobre la conducta de anotación (los anotadores son un grupo independiente) ni
+sobre el compromiso del sujeto; no afirma que el sujeto no vea o no reaccione al
+meme, sino que su reacción no es reproducible entre viewers.
+
 El PSRI es un método, no un índice suelto: aplicar el método obliga a auditar
 los pre-requisitos de su claim. Aquí la unidad de análisis es el meme, un
 agregado sobre pocos sujetos, y el pre-requisito es que ese agregado tenga
