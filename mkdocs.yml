@@ -1,7 +1,7 @@
 site_name: PSRI - Physiological Signal Reliability Index
-site_url: https://enriquegarciaarias.github.io/PSRI/
-repo_url: https://github.com/enriquegarciaarias/PSRI
-edit_uri: blob/master/docs/
+site_url: https://enriquegarciaarias.github.io/PSRI_Audit/
+repo_url: https://github.com/enriquegarciaarias/PSRI_Audit
+edit_uri: blob/main/docs/
 
 theme:
   name: material

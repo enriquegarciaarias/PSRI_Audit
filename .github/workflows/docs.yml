@@ -2,7 +2,7 @@ name: Deploy MkDocs a GitHub Pages
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   workflow_dispatch:
 
 permissions:

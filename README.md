@@ -1,7 +1,7 @@
 # PSRI — Physiological Signal Reliability Index
 
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![GitHub Pages](https://img.shields.io/badge/Docs-GitHub%20Pages-4FC08D?style=for-the-badge&logo=github&logoColor=white)](https://enriquegarciaarias.github.io/PSRI)
+[![GitHub Pages](https://img.shields.io/badge/Docs-GitHub%20Pages-4FC08D?style=for-the-badge&logo=github&logoColor=white)](https://enriquegarciaarias.github.io/PSRI_Audit)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge&logo=gnu&logoColor=white)](https://www.gnu.org/licenses/gpl-3.0)
 
 Índice de fiabilidad de señales fisiológicas para tareas de Recuperación de Información Social y aprendizaje con desacuerdo (**LeWiDi**).
@@ -20,9 +20,8 @@ Agnóstico al dispositivo, robusto (Mediana/MAD) y libre de entrenamiento.
 
 | Recurso | Enlace |
 |---|---|
-| 🌐 Sitio web del proyecto | <https://enriquegarciaarias.github.io/PSRI> |
-| 🐙 Repositorio | <https://github.com/enriquegarciaarias/PSRI> |
-| 📄 Paper (ECIR 2027) | `docs/ECIR2027/main.tex` |
+| 🌐 Sitio web del proyecto | <https://enriquegarciaarias.github.io/PSRI_Audit> |
+| 🐙 Repositorio | <https://github.com/enriquegarciaarias/PSRI_Audit> |
 
 ---
 
