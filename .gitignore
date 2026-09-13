@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.pyc
+
+Process.txt
+ProcessLog.txt
+
+models/
+results/
+output/
+outputs/
+out/
+*.csv
+
+# Documentación: solo se versionan los .md (páginas del sitio MkDocs)
+docs/
+!docs/
+docs/*.odt
+docs/*.pdf
+docs/*.tex
+docs/literatura/
+docs/dialogo.txt
+docs/reentre.md
+docs/ECIR2027/
+site/
+
+# Entornos virtuales
+.venv/
+AGENTS.md
+
+# IDEs
+.idea/
+.vscode/
+.pycache/
+
+# Configuración local
+config.json
+
+# Sesiones de trabajo (pueden contener secretos)
+session-*.md
+
+# archivos de trabajo del latex
+main.aux
+main.bbl
+main.blg
+main.log

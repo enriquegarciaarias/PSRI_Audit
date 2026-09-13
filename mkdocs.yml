@@ -1,0 +1,111 @@
+site_name: PSRI - Physiological Signal Reliability Index
+site_url: https://enriquegarciaarias.github.io/PSRI/
+repo_url: https://github.com/enriquegarciaarias/PSRI
+edit_uri: blob/master/docs/
+
+theme:
+  name: material
+  language: es
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo claro
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.expand
+    - content.code.copy
+    - content.tabs.link
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [.]
+          options:
+            show_source: true
+            show_root_heading: true
+            show_root_toc_entry: true
+            show_if_no_docstring: true
+            show_signature: true
+            docstring_style: google
+            heading_level: 2
+            separate_signature: true
+            filters:
+              - "!^_self_check$"
+
+watch:
+  - main.py
+  - sources
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - admonition
+  - attr_list
+  - md_in_html
+
+nav:
+  - Inicio: index.md
+  - Documentación del proyecto:
+      - Metodología: metodologia_esqueleto.md
+      - Análisis conceptual índice PSRI: conceptual_psri.md
+      - Estudio EXIST: EstudioEXIST.md
+      - Estudio K-EmoCon: EstudioKemocon.md
+      - Estudio PhysioNet: EstudioPhysioNet.md
+      - Análisis de literatura: analisis_literatura.md
+      - Análisis de literatura (extenso): analisis_literatura_extenso.md
+      - Análisis técnico proceso EXIST: tecnico_exist.md
+      - Análisis técnico proceso K-EmoCon: tecnico_kemocon.md
+      - Análisis técnico proceso PhysioNet: tecnico_physionet.md
+  - Referencia de la API:
+      - main: api/main.md
+      - sources:
+          - OLDdata_import: api/sources/OLDdata_import.md
+          - common:
+              - common: api/sources/common/common.md
+              - global_vars: api/sources/common/global_vars.md
+              - metrics: api/sources/common/metrics.md
+              - paramsManager: api/sources/common/paramsManager.md
+              - utils: api/sources/common/utils.md
+          - exist:
+              - aggregator: api/sources/exist/aggregator.md
+              - build_features: api/sources/exist/build_features.md
+              - final_check: api/sources/exist/final_check.md
+              - loader: api/sources/exist/loader.md
+              - sanity_check: api/sources/exist/sanity_check.md
+          - kemocon:
+              - aggregator: api/sources/kemocon/aggregator.md
+              - build_features: api/sources/kemocon/build_features.md
+              - experiment3: api/sources/kemocon/experiment3.md
+              - loader: api/sources/kemocon/loader.md
+              - plots: api/sources/kemocon/plots.md
+              - run_pipeline: api/sources/kemocon/run_pipeline.md
+              - sanity_check: api/sources/kemocon/sanity_check.md
+              - sensor_latency: api/sources/kemocon/sensor_latency.md
+              - task_validity: api/sources/kemocon/task_validity.md
+          - physionet:
+              - auc_comparison: api/sources/physionet/auc_comparison.md
+              - calibration_sensitivity: api/sources/physionet/calibration_sensitivity.md
+              - features: api/sources/physionet/features.md
+              - loader: api/sources/physionet/loader.md
+              - overlap_analysis: api/sources/physionet/overlap_analysis.md
+              - reference_sqi: api/sources/physionet/reference_sqi.md
+              - reporting: api/sources/physionet/reporting.md
+              - validator: api/sources/physionet/validator.md
+          - psri:
+              - calculator: api/sources/psri/calculator.md
+              - validation: api/sources/psri/validation.md
